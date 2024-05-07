@@ -16,7 +16,7 @@
     <!---------------------og tags are for open graph ----------------->
     <meta property="og:title" content="ScanFormer" />
 
-    <meta property="og:url" content="https://debashis.github.io/diverse-visual-scanpath" />
+    <meta property="og:url" content="https://debashis.github.io/ScanFormer" />
     <meta property="og:image" content="https://debashis.github.io/assets/images/lfsfa_thumb.jpg" />
     <meta property="og:image:type" content="image/jpg" />
     <meta property="og:image:width" content="1200" />
@@ -35,8 +35,8 @@
     <meta name="twitter:title" content="ScanFormer" />
     <meta name="twitter:description"
         content="ScanFormer: Transformer-based Prediction of Multiple Visual Scanpaths of Different Varieties." />
-    <meta name="twitter:url" content="https://ashishverma03.github.io/ScanFormer" />
-    <meta name="twitter:image" content="https://ashishverma03.github.io/assets/images/lfsafa_thumb.jpg" />
+    <meta name="twitter:url" content="https://debashis.github.io/ScanFormer" />
+    <meta name="twitter:image" content="https://debashis.github.io/assets/images/lfsafa_thumb.jpg" />
 
     <title>ScanFormer</title>
 
@@ -59,7 +59,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="https://ashishverma03.github.io/"><i
+                    <a class="navbar-brand" href="https://debashis.github.io/"><i
                             class="fas fa-house-user d-inline-block"></i></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -97,9 +97,8 @@
           font-size: calc(10px + 0.5vw);
           font-family: 'Roboto', sans-serif;
         ">
-            <a href="https://github.com/ashishverma03" target="_blank" style="text-decoration: none; color: rgb(70, 70, 70)"
-                onmouseover="this.style.color='gray'" onmouseout="this.style.color='rgb(70, 70, 70)'"><u>Ashish
-                    Verma</u></a>, Debashis Sen
+            <a href="https://github.com/sendebashis" target="_blank" style="text-decoration: none; color: rgb(70, 70, 70)"
+                onmouseover="this.style.color='gray'" onmouseout="this.style.color='rgb(70, 70, 70)'"><u>Debashis Sen</u></a>, Debashis Sen
         </h2>
 
         <!--Institution Name-->
@@ -121,28 +120,31 @@
         <div class="row">
             <div class="col-sm">
                 <p style="text-align: justify">
-                    Visual scanpaths of multiple humans on an image represent the process
-                    by which they capture the information in it. State-of-the-art models 
-                    to predict visual scanpaths on images learn directly from recorded 
-                    human visual scanpaths. However, the generation of multiple visual
-                    scanpaths on an image having diversity like human visual scanpaths
-                    has not been explicitly considered. In this paper, we propose a deep
-                    network for predicting multiple diverse visual scanpaths on an image.
-                    Image-specific hidden Markov model based generative data augmentation
-                    is performed in the beginning to increase the number of image-visual
-                    scanpath training pairs. Considering a similarity between our generative
-                    data augmentation process and the use of long short-term memory (LSTM)
-                    for prediction, we propose an LSTM based visual scanpath predictor.
-                    A network to predict a single visual scanpath on an image is designed first.
-                    The network is then modified to predict multiple diverse visual scanpaths
-                    representing different viewer varieties by using a parameter indicating the
-                    uniqueness of a viewer. A random vector is also employed for subtle variations
-                    within scanpaths of the same viewer variety. Our models are evaluated on three
-                    standard datasets using multiple performance measures, which demonstrate the
-                    superiority of the proposed approach over the state-of-the-art. Empirical
-                    studies are also given indicating the significance of our generative data
-                    augmentation method and our multiple scanpath prediction strategy producing
-                    diverse visual scanpaths.
+                    Different humans often perceive a scene through
+                    distinct visual attention shifts that can be represented by scan-
+                    paths of different varieties. Approaches that predict multiple
+                    visual scanpaths on an image must thus consider producing
+                    scanpaths of distinct varieties for human-like generation, which
+                    has been mostly overlooked in the existing literature. In this
+                    paper, we introduce ScanFormer, a framework to predict diverse
+                    visual scanpaths of different varieties on an image employing a
+                    meshed-memory Transformer. The memory-augmented encoder
+                    of the Transformer generates multi-level contextual features that
+                    capture the relationships among image regions and embed learnt
+                    biases towards them. The meshed decoder of the Transformer
+                    models inter-fixation dependencies to successively predict the
+                    fixations of the output scanpath, while taking the features from
+                    the encoder, previous fixations and a condition representing
+                    the variety of the scanpath as the inputs. The generation of
+                    multiple diverse visual scanpaths on an image is facilitated by
+                    learning to embed the scanpath variety into a representation
+                    relating to a scanpath’s uniqueness among multiple scanpaths.
+                    We evaluate the proposed approach on three standard datasets
+                    in terms of five types of established metrics. The experimental
+                    results reflect the superiority of ScanFormer over state-of-the-
+                    art methods in generating multiple diverse human-like visual
+                    scanpaths on images. An ablation study empirically demonstrates
+                    the significance of the various components of our framework.
                 </p>
             </div>
         </div>
@@ -155,17 +157,16 @@
             <div class="col">
                 <ol type="i">
                     <li>
-                        A visual scanpath predictor network for images, which is
-                        trained end-to-end, driven by generative data augmentation.
+                        A novel meshed-memory Transformer based framework, ScanFormer, to generate 
+                        multiple visual scanpaths of different varieties for an image.
                     </li>
                     <li>
-                        A HMM-based generative data augmentation procedure to obtain
-                        image-specific training pairs of images & visual scanpaths.
+                        Modeling inter-fixation dependencies for scanpath prediction in the framework’s 
+                        decoder using encoded relationships among image regions from its encoder.
                     </li>
                     <li>
-                        A training strategy based on the uniqueness of a viewer to 
-                        generate multiple and diverse visual scanpaths of different 
-                        viewer varieties for an image.
+                        The use of an integer-valued condition in the architecture for modeling 
+                        scanpath variety to produce the set of distinct scanpaths.
                     </li>
                 </ol>
             </div>
@@ -180,15 +181,14 @@
             <div class="col d-flex justify-content-center">
                 <figure class="figure">
                     <span class="d-flex justify-content-center">
-                        <img class="img-fluid figure-img" src="assets/subpage-diverse-visual-scanpath/archtitecture/new_overall_model.jpg"
+                        <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/archtitecture/Model_arch_new.jpg"
                             class="figure-img img-fluid rounded" title="proposed architecture image"
                             height="800" width="1200"
-                            alt="proposed diverse visual scanpath prediction" /></a></span>
+                            alt="ScanFormer: proposed scanpath prediction" /></a></span>
                     <figcaption class="text-center" id="figCap">
-                        The architecture of the proposed model for visual scanpath 
-                        prediction comprises of two main novel components: augmentation
-                        of image-visual scanpath pairs using HMM and the LSTM-based 
-                        scanpath predictor.
+                        The schematic of our proposed approach for prediction of multiple visual scanpaths 
+                        of different varieties. The approach comprises of visual scanpath categorization, image 
+                        patchification, visual feature encoding, and a transformer-based scanpath predictor (ScanFormer).
                         <!--EDIT CAPTION HERE-->
                     </figcaption>
                 </figure>
@@ -204,15 +204,16 @@
                 </h2>
                 <figure class="figure">
                     <span class="d-flex justify-content-center">
-                        <img class="img-fluid figure-img" src="assets/subpage-diverse-visual-scanpath/Results/Table1.jpg"
-                            class="figure-img img-fluid rounded" title="Proposed sub-aperture feature adaptation module"
+                        <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/Results/Table1.jpg"
+                            class="figure-img img-fluid rounded" title="Within-dataset evaluation table"
                             height="600" width="600"
-                            alt="proposed diverse visual scanpath prediction" /></a></span>
+                            alt="proposed visual scanpath prediction" /></a></span>
                     <figcaption class="text-center" id="figCap">
-                        Table 1: Performance comparison of the various multiple scanpath prediction models on 
-                        the OSIE test set. The top-3 ranked models for each MultiMatch score are indicated by 
-                        subscripts. The top-3 models with the closest Intra-SS to Human-GT's (G) are also 
-                        indicated by subscripts to tick marks denoting they are within G&plusmn;0.25.
+                        Table 1: Within-dataset evaluation of various models using four
+                        MultiMatch metrics and D-score on the OSIE test images. The top
+                        three results in order are marked in red, green and blue, respectively.
+                        H represents the Inter-observer D-score and the D-scores within
+                        H&plusmn;0.25 are shown in bold. 
                         <!--EDIT CAPTION HERE-->
                     </figcaption>
                 </figure>
@@ -226,14 +227,14 @@
                     <div class="col-12">
                         <figure class="figure">
                             <span class="d-flex justify-content-center">
-                                <img class="img-fluid figure-img" src="assets/subpage-diverse-visual-scanpath/Results/Table2.jpg"
-                                    class="figure-img img-fluid rounded" title="Model ablation studies" height="600"
+                                <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/Results/Table2.jpg"
+                                    class="figure-img img-fluid rounded" title="Cross-dataset evaluation" height="600"
                                     width="1200" alt="Table number 2, caption is mentioned below." /></a></span>
                             <figcaption class="text-center" id="figCap">
-                                Table 2: Cross-dataset evaluation of the various multiple scanpath prediction models.
-                                The top-3 ranked models for each MultiMatch score are indicated by subscripts. 
-                                The top-3 models with the closest Intra-SS to that of Human-GT (G) are also indicated
-                                by subscripts to tick marks denoting that they are within G&plusmn;0.25.
+                                Table 2: Cross-dataset evaluation of various models using four MultiMatch metrics and D-scores. 
+                                The top three results in order are marked in red, green and blue, respectively. H represents 
+                                the Inter-observer D-score and the D-scores within H&plusmn;0.25 are shown in bold.
+                                Cross-dataset evaluation of the various multiple scanpath prediction models.
                                 <!--EDIT CAPTION HERE-->
                             </figcaption>
                         </figure>
@@ -251,12 +252,12 @@
             <div class="col d-flex justify-content-center">
                 <figure class="figure">
                     <span class="d-flex justify-content-center">
-                        <img class="img-fluid figure-img" src="assets/subpage-diverse-visual-scanpath/visComparison/Final_plotted_image1.jpg"
+                        <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/visComparison/Plotted_images_multi.jpg"
                             class="figure-img img-fluid rounded"
-                            title="Qualitative comparison of our proposed DiviScan" width="1300"
-                            alt="Image for qualitative comparison of our proposed DiviScan" /></a></span>
+                            title="Qualitative comparison of our proposed ScanFormer" width="1300"
+                            alt="Qualitative comparison of our proposed ScanFormer with others" /></a></span>
                     <figcaption class="text-center" id="figCap">
-                        Visual scanpaths (with highest SS) predicted by the various models embedded on images with different numbers of objects of interest.
+                        Visualization of scanpaths predicted by our ScanFormer model and those by the other methods, overlayed on the corresponding images.
                         <!--EDIT CAPTION HERE-->
                     </figcaption>
                 </figure>
@@ -270,7 +271,7 @@
         <div class="row">
             <div class="col-sm-4 text-center">
                 <figure class="figure">
-                    <a href="https://github.com/ashishverma03/DiViScan" rel="external nofollow" target="_blank"
+                    <a href="https://github.com/sendebashis/ScanFormer" rel="external nofollow" target="_blank"
                         onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"><i
                             class="fab fa-github" style="font-size: 120px; color: rgb(54, 54, 54)"></i>
                     </a>
@@ -301,28 +302,33 @@
             <div class="col">
                 <ul>
                     <li style="text-align: justify">
-                        [7] L. Itti, C. Koch, and E. Niebur, “A model of saliency-based visual attention for rapid scene analysis,” IEEE T-PAMI, no. 11, pp. 1254–1259, Nov. 1998.
+                        [10] L. Itti, C. Koch, and E. Niebur, “A model of saliency-based visual attention for rapid scene analysis,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 20, no. 11, pp. 1254–1259, Nov. 1998.
                     </li>
                     <li style="text-align: justify">
-                        [10] O. Le Meur and Z. Liu, “Saccadic model of eye movements for free-viewing condition,” Vis. Res., vol. 116, pp. 152–164, Nov. 2015.
+                        [12] O. Le Meur and Z. Liu, “Saccadic model of eye movements for free-viewing condition,” Vis. Res., vol. 116, pp. 152–164, Nov. 2015.
                     </li>
                     <li style="text-align: justify">
-                        [11] C. Wloka, I. Kotseruba, and J. K. Tsotsos, “Active fixation control to predict saccade sequences,” in CVPR, Jun. 2018, pp. 3184–3193.
+                        [15] C. Wloka, I. Kotseruba, and J. K. Tsotsos, “Active fixation control to predict saccade sequences,” in Proc. IEEE Conf. Comput. Vis. Pattern Recogn. (CVPR), Jun. 2018, pp. 3184–3193.
+
                     </li>
                     <li style="text-align: justify">
-                        [13] W. Sun, Z. Chen, and F. Wu, “Visual scanpath prediction using IOR-ROI recurrent mixture density network,” IEEE T-PAMI, vol. 43, no. 6, pp. 2101–2118, Dec. 2019.
+                        [17] W. Sun, Z. Chen, and F. Wu, “Visual scanpath prediction using IOR-ROI recurrent mixture density network,” IEEE T-PAMI, vol. 43, no. 6, pp. 2101–2118, Dec. 2019. 
                     </li>
                     <li style="text-align: justify">
-                        [22] G. Boccignone and M. Ferraro, “Modelling gaze shift as a constrained random walk,” Phys. A, Statist. Mech. Appl., vol. 331, no. 1-2, pp. 207– 218, Jan. 2004.19.
+                        [25] X. Chen, M. Jiang, and Q. Zhao, “Predicting human scanpaths in visual question answering,” in CVPR, Jun. 2021, pp. 10 876–10 885.
                     </li>
                     <li style="text-align: justify">
-                        [28] M. Assens Reina, X. Giro-i Nieto, K. McGuinness, and N. E. O’Connor, “Saltinet: Scan-path prediction on 360 degree images using saliency volumes,” in ICCVW, Oct. 2017, pp. 2331–2338.
+                        [28] X. Sun, H. Yao, R. Ji, and X.-M. Liu, “Toward statistical modeling of saccadic eye-movement and visual saliency,” IEEE Trans. Image Process., vol. 23, no. 11, pp. 4649–4662, Jul. 2014.
+
                     </li>
                     <li style="text-align: justify">
-                        [29] M. Assens, X. Giro-i Nieto, K. McGuinness, and N. E. O’Connor, “Path-GAN: Visual scanpath prediction with generative adversarial networks,” in ECCVW, Sep. 2018.
+                        [36] M. Assens Reina, X. Giro-i Nieto, K. McGuinness, and N. E. O’Connor, “Saltinet: Scan-path prediction on 360 degree images using saliency volumes,” in ICCVW, Oct. 2017, pp. 2331–2338.
                     </li>
                     <li style="text-align: justify">
-                        [33] X. Chen, M. Jiang, and Q. Zhao, “Predicting human scanpaths in visual question answering,” in CVPR, Jun. 2021, pp. 10 876–10 885.
+                        [38] M. Assens, X. Giro-i Nieto, K. McGuinness, and N. E. O’Connor, “Path-GAN: Visual scanpath prediction with generative adversarial networks,” in ECCVW, Sep. 2018.
+                    </li>
+                    <li style="text-align: justify">
+                        [43] X. Sui, Y. Fang, H. Zhu, S. Wang, and Z. Wang, “ScanDMM: A deep Markov model of scanpath prediction for 360deg images,” in Proc. IEEE Conf. Comput. Vis. Pattern Recogn. (CVPR), Jun. 2023, pp. 6989–6999.
                     </li>
                 </ul>
             </div>
@@ -333,7 +339,7 @@
         <footer>
             <p style="text-align: center">
                 <i class="far fa-copyright"></i> 2022
-                <a href="https://github.com/ashishverma03" target="_blank">Ashish Verma</a>.
+                <a href="https://github.com/sendebashis" target="_blank">Debashis Sen</a>.
                 Made in
                 <a href="https://www.incredibleindia.org/" target="_blank"><img id="flag"
                         src="/assets/images/india-flag-icon-32.png" alt="My Great Country India's Flag" /></a>
