@@ -1,1 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <!--Update this for shortest possible description-->
+    <meta name="description"
+        content="ScanFormer: Transformer-based Prediction of Multiple Visual Scanpaths of Different Varieties." />
+
+    <!--This part is to give credit to the person who developed the site-->
+    <meta name="author" content="A. Patra" />
+
+    <!---------------------og tags are for open graph ----------------->
+    <meta property="og:title" content="ScanFormer" />
+
+    <meta property="og:url" content="https://sendebashis.github.io/ScanFormer" />
+    <meta property="og:image" content="https://sendebashis.github.io/assets/images/lfsfa_thumb.jpg" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+        content="ScanFormer: Transformer-based Prediction of Multiple Visual Scanpaths of Different Varieties." />
+
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!---------------TWITTER CRDS------------------------>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ScanFormer" />
+    <meta name="twitter:description"
+        content="ScanFormer: Transformer-based Prediction of Multiple Visual Scanpaths of Different Varieties." />
+    <meta name="twitter:url" content="https://sendebashis.github.io/ScanFormer" />
+    <meta name="twitter:image" content="https://sendebashis.github.io/assets/images/lfsafa_thumb.jpg" />
+
+    <title>ScanFormer</title>
+
+    <!--Page Icon-->
+    <link rel="icon" type="image/png" href="assets/images/ak2.ico" />
+
+    <!--STYLESHEETS (.css)-->
+
+    <!--For Bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--Extrenal css-->
+    <link rel="stylesheet" href="ScanFormer/subpage.css" />
+</head>
+
+<body>
+    <div class="container" style="background-color: rgb(255, 255, 255)">
+        <!--Top Nav-->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="https://sendebashis.github.io/"><i
+                            class="fas fa-house-user d-inline-block"></i></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#sectionResult">Result</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#download">Download</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!--Topic Name-->
+        <h1 style="
+          text-align: center;
+          font-size: calc(25px + 0.5vw);
+          font-family: 'Raleway', sans-serif;
+          font-weight: bold;
+        ">
+            ScanFormer
+        </h1>
+
+        <!--Author Name-->
+
+        <h2 style="
+          text-align: center;
+          font-size: calc(10px + 0.5vw);
+          font-family: 'Roboto', sans-serif;
+        ">
+            <a href="https://github.com/sendebashis" target="_blank" style="text-decoration: none; color: rgb(70, 70, 70)"
+                onmouseover="this.style.color='gray'" onmouseout="this.style.color='rgb(70, 70, 70)'">Ashish Verma, <u>Debashis Sen</u></a>
+        </h2>
+
+        <!--Institution Name-->
+
+        <h3 style="
+          text-align: center;
+          font-size: calc(10px + 0.5vw);
+          font-family: 'Roboto', sans-serif;
+        ">
+            Department of Electronics and Electrical Communication Engineering
+            <br />
+            Indian Institute of Technology Kharagpur, India
+        </h3>
+        <hr />
+        <!------------------------------ABSTRACT-------------------->
+        <h2 id="headingStyles" class="text-center text-md-start">
+            <i class="fas fa-lightbulb"></i>&nbsp;Abstract
+        </h2>
+        <div class="row">
+            <div class="col-sm">
+                <p style="text-align: justify">
+                    Different humans often perceive a scene through
+                    distinct visual attention shifts that can be represented by scan-
+                    paths of different varieties. Approaches that predict multiple
+                    visual scanpaths on an image must thus consider producing
+                    scanpaths of distinct varieties for human-like generation, which
+                    has been mostly overlooked in the existing literature. In this
+                    paper, we introduce ScanFormer, a framework to predict diverse
+                    visual scanpaths of different varieties on an image employing a
+                    meshed-memory Transformer. The memory-augmented encoder
+                    of the Transformer generates multi-level contextual features that
+                    capture the relationships among image regions and embed learnt
+                    biases towards them. The meshed decoder of the Transformer
+                    models inter-fixation dependencies to successively predict the
+                    fixations of the output scanpath, while taking the features from
+                    the encoder, previous fixations and a condition representing
+                    the variety of the scanpath as the inputs. The generation of
+                    multiple diverse visual scanpaths on an image is facilitated by
+                    learning to embed the scanpath variety into a representation
+                    relating to a scanpath’s uniqueness among multiple scanpaths.
+                    We evaluate the proposed approach on three standard datasets
+                    in terms of five types of established metrics. The experimental
+                    results reflect the superiority of ScanFormer over state-of-the-
+                    art methods in generating multiple diverse human-like visual
+                    scanpaths on images. An ablation study empirically demonstrates
+                    the significance of the various components of our framework.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <!------------------------------HIGHLIGHTS-------------------->
+        <h2 id="headingStyles" class="text-center text-md-start">
+            <i class="fas fa-satellite-dish"></i>&nbsp;Highlights
+        </h2>
+        <div class="row" id="jumbo">
+            <div class="col">
+                <ol type="i">
+                    <li>
+                        A novel meshed-memory Transformer based framework, ScanFormer, to generate 
+                        multiple visual scanpaths of different varieties for an image.
+                    </li>
+                    <li>
+                        Modeling inter-fixation dependencies for scanpath prediction in the framework’s 
+                        decoder using encoded relationships among image regions from its encoder.
+                    </li>
+                    <li>
+                        The use of an integer-valued condition in the architecture for modeling 
+                        scanpath variety to produce the set of distinct scanpaths.
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <hr />
+        <!------------------------------Proposed module-------------------->
+        <h2 id="headingStyles" class="text-center text-md-start">
+            <i class="fas fa-puzzle-piece"></i>&nbsp;Proposed Architecture
+        </h2>
+        <div class="row ">
+            <!-------------------------------FIGURE 1--------------------------->
+            <div class="col d-flex justify-content-center">
+                <figure class="figure">
+                    <span class="d-flex justify-content-center">
+                        <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/archtitecture/Model_arch_new.jpg"
+                            class="figure-img img-fluid rounded" title="proposed architecture image"
+                            height="800" width="1200"
+                            alt="ScanFormer: proposed scanpath prediction" /></a></span>
+                    <figcaption class="text-center" id="figCap">
+                        The schematic of our proposed approach for prediction of multiple visual scanpaths 
+                        of different varieties. The approach comprises of visual scanpath categorization, image 
+                        patchification, visual feature encoding, and a transformer-based scanpath predictor (ScanFormer).
+                        <!--EDIT CAPTION HERE-->
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <hr>
+        <!------------------------------Results and ABalation Studies-------------------->
+        <div class="col" id="sectionResult">
+            <!-------------------------------FIGURE 2--------------------------->
+            <div class="col d-flex justify-content-center">
+                <h2 id="headingStyles" class="text-center text-md-start">
+                    <i class="fas fa-poll"></i>&nbsp;Sample Results (Full results will be released soon)
+                </h2>
+                <figure class="figure">
+                    <span class="d-flex justify-content-center">
+                        <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/Results/Table1.jpg"
+                            class="figure-img img-fluid rounded" title="Within-dataset evaluation table"
+                            height="600" width="600"
+                            alt="proposed visual scanpath prediction" /></a></span>
+                    <figcaption class="text-center" id="figCap">
+                        Table 2: Within-dataset evaluation of various models using four
+                        MultiMatch metrics and D-score on the OSIE test images. The top
+                        three results in order are marked in red, green and blue, respectively.
+                        H represents the Inter-observer D-score and the D-scores within
+                        H&plusmn;0.25 are shown in bold. 
+                        <!--EDIT CAPTION HERE-->
+                    </figcaption>
+                </figure>
+            </div>
+            <br>
+            <div class="col d-flex justify-content-center">
+                <h2 id="headingStyles" class="text-center text-md-start">
+                    <i class="fas fa-poll"></i>&nbsp;
+                </h2>
+                <div class="row">
+                    <div class="col-12">
+                        <figure class="figure">
+                            <span class="d-flex justify-content-center">
+                                <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/Results/Table2.jpg"
+                                    class="figure-img img-fluid rounded" title="Cross-dataset evaluation" height="600"
+                                    width="1200" alt="Table number 2, caption is mentioned below." /></a></span>
+                            <figcaption class="text-center" id="figCap">
+                                Table 3: Cross-dataset evaluation of various models using four MultiMatch metrics and D-scores. 
+                                The top three results in order are marked in red, green and blue, respectively. H represents 
+                                the Inter-observer D-score and the D-scores within H&plusmn;0.25 are shown in bold.
+                                Cross-dataset evaluation of the various multiple scanpath prediction models.
+                                <!--EDIT CAPTION HERE-->
+                            </figcaption>
+                        </figure>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!------------------------------Visual Comparison-------------------->
+        <h2 id="headingStyles" class="text-center text-md-start">
+            <i class="fas fa-eye"></i>&nbsp;Visual Comparison
+        </h2>
+        <div class="row ">
+            <!-------------------------------FIGURE 2--------------------------->
+            <div class="col d-flex justify-content-center">
+                <figure class="figure">
+                    <span class="d-flex justify-content-center">
+                        <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/visComparison/Plotted_images_multi.jpg"
+                            class="figure-img img-fluid rounded"
+                            title="Qualitative comparison of our proposed ScanFormer" width="1300"
+                            alt="Qualitative comparison of our proposed ScanFormer with others" /></a></span>
+                    <figcaption class="text-center" id="figCap">
+                        Visualization of scanpaths predicted by our ScanFormer model and those by the other methods, overlayed on the corresponding images.
+                        <!--EDIT CAPTION HERE-->
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <hr>
+        <!-----------------------DOWNLOADS------------------------------->
+        <h2 id="download" class="text-center text-md-start">
+            <i class="fas fa-download"></i>&nbsp;Download
+        </h2>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <figure class="figure">
+                    <a href="https://github.com/sendebashis/ScanFormer" rel="external nofollow" target="_blank"
+                        onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"><i
+                            class="fab fa-github" style="font-size: 120px; color: rgb(54, 54, 54)"></i>
+                    </a>
+                    <figcaption class="text-center figure-caption" style="font-size: calc(10px + 0.5vw)">
+                        Code will be released once the paper 
+                        is accepted for publication.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-4 text-center">
+                <figure class="figure">
+                    <a href="#########ENTER_LINK###########" rel="external nofollow" target="_blank"
+                        onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"><img
+                            src="assets/images/gdrive.png" alt="Google drive image icon" width="150px" height="120px"
+                            title="Click to Open" />
+                    </a>
+                    <figcaption class="text-center figure-caption" style="font-size: calc(12px + 0.5vw)">
+                        Training & Testing Datasets
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <hr />
+        <!-------------------------REFERENCES---------------------------->
+        <h2 id="headingStyles" class="text-center text-md-start">
+            <i class="fas fa-asterisk"></i>&nbsp;References
+        </h2>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li style="text-align: justify">
+                        [10] L. Itti, C. Koch, and E. Niebur, “A model of saliency-based visual attention for rapid scene analysis,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 20, no. 11, pp. 1254–1259, Nov. 1998.
+                    </li>
+                    <li style="text-align: justify">
+                        [12] O. Le Meur and Z. Liu, “Saccadic model of eye movements for free-viewing condition,” Vis. Res., vol. 116, pp. 152–164, Nov. 2015.
+                    </li>
+                    <li style="text-align: justify">
+                        [15] C. Wloka, I. Kotseruba, and J. K. Tsotsos, “Active fixation control to predict saccade sequences,” in Proc. IEEE Conf. Comput. Vis. Pattern Recogn. (CVPR), Jun. 2018, pp. 3184–3193.
+
+                    </li>
+                    <li style="text-align: justify">
+                        [17] W. Sun, Z. Chen, and F. Wu, “Visual scanpath prediction using IOR-ROI recurrent mixture density network,” IEEE T-PAMI, vol. 43, no. 6, pp. 2101–2118, Dec. 2019. 
+                    </li>
+                    <li style="text-align: justify">
+                        [25] X. Chen, M. Jiang, and Q. Zhao, “Predicting human scanpaths in visual question answering,” in CVPR, Jun. 2021, pp. 10 876–10 885.
+                    </li>
+                    <li style="text-align: justify">
+                        [28] X. Sun, H. Yao, R. Ji, and X.-M. Liu, “Toward statistical modeling of saccadic eye-movement and visual saliency,” IEEE Trans. Image Process., vol. 23, no. 11, pp. 4649–4662, Jul. 2014.
+
+                    </li>
+                    <li style="text-align: justify">
+                        [36] M. Assens Reina, X. Giro-i Nieto, K. McGuinness, and N. E. O’Connor, “Saltinet: Scan-path prediction on 360 degree images using saliency volumes,” in ICCVW, Oct. 2017, pp. 2331–2338.
+                    </li>
+                    <li style="text-align: justify">
+                        [38] M. Assens, X. Giro-i Nieto, K. McGuinness, and N. E. O’Connor, “Path-GAN: Visual scanpath prediction with generative adversarial networks,” in ECCVW, Sep. 2018.
+                    </li>
+                    <li style="text-align: justify">
+                        [43] X. Sui, Y. Fang, H. Zhu, S. Wang, and Z. Wang, “ScanDMM: A deep Markov model of scanpath prediction for 360deg images,” in Proc. IEEE Conf. Comput. Vis. Pattern Recogn. (CVPR), Jun. 2023, pp. 6989–6999.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr />
+
+        <!-----------------------------FOOTER------------------------------->
+        <footer>
+            <p style="text-align: center">
+                <i class="far fa-copyright"></i> 2022
+                <a href="https://github.com/sendebashis" target="_blank">Debashis Sen</a>.
+                Made in
+                <a href="https://www.incredibleindia.org/" target="_blank"><img id="flag"
+                        src="/assets/images/india-flag-icon-32.png" alt="My Great Country India's Flag" /></a>
+                by
+                <a href="https://thingsbypatra.pythonanywhere.com//" target="_blank">Patra
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <!--SCRIPTS (.js)-->
+    <!--JQUERY-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--Font Awesome 5-->
+    <script src="https://kit.fontawesome.com/58bac38d13.js" crossorigin="anonymous"></script>
+
+    <!--Bootstrap 5-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!--External JS-->
+    <script src="lfsafa-sr/subjs.js"></script>
+</body>
+
+</html>
 
