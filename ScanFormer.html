@@ -120,31 +120,19 @@
         <div class="row">
             <div class="col-sm">
                 <p style="text-align: justify">
-                    Different humans often perceive a scene through
-                    distinct visual attention shifts that can be represented by scan-
-                    paths of different varieties. Approaches that predict multiple
-                    visual scanpaths on an image must thus consider producing
-                    scanpaths of distinct varieties for human-like generation, which
-                    has been mostly overlooked in the existing literature. In this
-                    paper, we introduce ScanFormer, a framework to predict diverse
-                    visual scanpaths of different varieties on an image employing a
-                    meshed-memory Transformer. The memory-augmented encoder
-                    of the Transformer generates multi-level contextual features that
-                    capture the relationships among image regions and embed learnt
-                    biases towards them. The meshed decoder of the Transformer
-                    models inter-fixation dependencies to successively predict the
-                    fixations of the output scanpath, while taking the features from
-                    the encoder, previous fixations and a condition representing
-                    the variety of the scanpath as the inputs. The generation of
-                    multiple diverse visual scanpaths on an image is facilitated by
-                    learning to embed the scanpath variety into a representation
-                    relating to a scanpath’s uniqueness among multiple scanpaths.
-                    We evaluate the proposed approach on three standard datasets
-                    in terms of five types of established metrics. The experimental
-                    results reflect the superiority of ScanFormer over state-of-the-
-                    art methods in generating multiple diverse human-like visual
-                    scanpaths on images. An ablation study empirically demonstrates
-                    the significance of the various components of our framework.
+                    Different humans perceive a scene through distinct visual attention shifts that can be represented by scanpaths of different varieties.
+                    Approaches that predict multiple visual scanpaths on an image must thus consider producing scanpaths of distinct varieties for human-
+                    like generation, which has been mostly overlooked in the existing literature. In this paper, we introduce ScanFormer, a framework to
+                    predict diverse visual scanpaths of different varieties on an image employing a meshed-memory transformer. The memory-augmented
+                    encoder of the transformer generates multi-level contextual features that capture the relationships among image regions and embed
+                    learned biases towards them. The meshed decoder of the transformer models inter-fixation dependencies to successively predict the
+                    fixations of the output scanpath, by taking the features from the encoder, previous fixations and a condition representing the variety of
+                    the scanpath as the inputs. The generation of multiple diverse visual scanpaths on an image is facilitated by learning to embed scanpath
+                    variety as a representation related to a scanpath’s uniqueness among multiple scanpaths. We evaluate the proposed approach on three
+                    standard datasets in terms of five types of established quantitative measures. Saccade amplitude and orientation density plots are also
+                    considered in the performance analysis. The experimental results demonstrate the superiority of ScanFormer over state-of-the-art
+                    methods in generating multiple diverse human-like visual scanpaths on images. Further, an ablation study is provided to empirically
+                    establish the significance of the various components of our framework.
                 </p>
             </div>
         </div>
@@ -217,6 +205,29 @@
                         <!--EDIT CAPTION HERE-->
                     </figcaption>
                 </figure>
+            </div>
+            <br>
+            <div class="col d-flex justify-content-center">
+                <h2 id="headingStyles" class="text-center text-md-start">
+                    <i class="fas fa-poll"></i>&nbsp;
+                </h2>
+                <div class="row">
+                    <div class="col-12">
+                        <figure class="figure">
+                            <span class="d-flex justify-content-center">
+                                <img class="img-fluid figure-img" src="assets/subpage-ScanFormer/Results/Table2.jpg"
+                                    class="figure-img img-fluid rounded" title="Cross-dataset evaluation" height="600"
+                                    width="1200" alt="Table number 2, caption is mentioned below." /></a></span>
+                            <figcaption class="text-center" id="figCap">
+                                Table 3: Cross-dataset evaluation of various models using four MultiMatch metrics and D-scores. 
+                                The top three results in order are marked in red, green and blue, respectively. H represents 
+                                the Inter-observer D-score and the D-scores within H&plusmn;0.25 are shown in bold.
+                                Cross-dataset evaluation of the various multiple scanpath prediction models.
+                                <!--EDIT CAPTION HERE-->
+                            </figcaption>
+                        </figure>
+                    </div>  
+                </div>
             </div>
             <br>
             <div class="col d-flex justify-content-center">
